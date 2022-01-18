@@ -1,0 +1,88 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  _id: ObjectId!
+  description: String!
+  name: String!
+  status: StatusEnum!
+}
+
+input CreateCategoryInput {
+  description: String!
+  name: String!
+  status: StatusEnum!
+}
+
+input CreateProductInput {
+  categories: [ObjectId!]
+  characteristics: ProductCharacteristicsInput
+  description: String!
+  name: String!
+  status: StatusEnum!
+}
+
+type Mutation {
+  createCategory(input: CreateCategoryInput!): Category!
+  createProduct(input: CreateProductInput!): Product!
+  deleteCategory(_id: ObjectId!): Category!
+  deleteProduct(_id: ObjectId!): Product!
+  updateCategory(_id: ObjectId!, input: UpdateCategoryInput!): Category!
+  updateProduct(_id: ObjectId!, input: UpdateProductInput!): Product!
+}
+
+"""MongoDB ObjectId scalar type."""
+scalar ObjectId
+
+type Product {
+  _id: ObjectId!
+  categories: [Category!]
+  characteristics: ProductCharacteristicsObject
+  description: String!
+  name: String!
+  status: StatusEnum!
+}
+
+input ProductCharacteristicsInput {
+  one: String
+  two: String
+}
+
+type ProductCharacteristicsObject {
+  one: String
+  two: String
+}
+
+type ProductSimple {
+  _id: ObjectId!
+  name: String!
+}
+
+type Query {
+  categories: [Category!]!
+  category(_id: ObjectId!): Category!
+  product(_id: ObjectId!): Product!
+  productSimple(_id: ObjectId!): ProductSimple!
+  products: [Product!]!
+}
+
+"""Category status"""
+enum StatusEnum {
+  ACTIVE
+  DISABLED
+}
+
+input UpdateCategoryInput {
+  description: String
+  name: String
+  status: StatusEnum
+}
+
+input UpdateProductInput {
+  categories: [ObjectId!]
+  characteristics: ProductCharacteristicsInput
+  description: String
+  name: String
+  status: StatusEnum
+}

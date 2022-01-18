@@ -1,0 +1,4 @@
+docker/data
+.DS_Store
+.vscode
+back/package-lock.json
