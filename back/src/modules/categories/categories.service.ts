@@ -28,8 +28,8 @@ export class CategoriesService {
 
   async create(data: CreateCategoryInput) {
     try {
-      const newFaq = new this.categoryModel(data);
-      return await newFaq.save();
+      const newCategory = new this.categoryModel(data);
+      return await newCategory.save();
     } catch (error) {
       console.error(error);
       throw new BadRequestException();
