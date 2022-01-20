@@ -1,8 +1,8 @@
 import { Prop, Schema } from '@nestjs/mongoose';
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType, InputType } from '@nestjs/graphql';
 
 @ObjectType('ProductCharacteristicsObject')
-// @ObjectType('ProductCharacteristicsInput')
+// @InputType('ProductCharacteristicsInput')
 @Schema({ _id: false })
 export class ProductCharacteristics {
   @Field(() => String, { nullable: true })
