@@ -1,21 +1,21 @@
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule as GraphQL } from '@nestjs/graphql';
 import { join } from 'path';
 
-import { UpperCaseDirective } from '../../directives/uppercase.directive';
+import { upperDirectiveTransformer } from '../../directives/uppercase.directive';
 
 @Module({
   imports: [
-    GraphQL.forRoot({
+    GraphQL.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       cors: {
         origin: '*',
         credentials: true
       },
       sortSchema: true,
-      schemaDirectives: {
-        upperCaseDirective: UpperCaseDirective
-      },
+      transformSchema: (schema) => upperDirectiveTransformer(schema, 'upper'),
       playground: true,
       introspection: true,
       debug: true
