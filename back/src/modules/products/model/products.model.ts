@@ -50,7 +50,7 @@ export class Product {
   @Prop()
   price: number;
 
-  @Field(() => Int)
+  @Field(() => Float)
   @Prop()
   percentDiscount: number;
 }
