@@ -46,6 +46,16 @@ export class CreateProductInput {
   categories?: ObjectIdScalar[];
 
   @IsOptional()
+  @IsNumber()
+  @Field(() => Float)
+  price?: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Field(() => Float)
+  percentDiscount?: number;
+
+  @IsOptional()
   @IsObject()
   @Field(() => ProductCharacteristicsInput, { nullable: true })
   characteristics: ProductCharacteristicsInput;
@@ -74,6 +84,18 @@ export class UpdateProductInput {
   @IsEnum(StatusEnum)
   @Field(() => StatusEnum, { nullable: true })
   status: StatusEnum;
+
+  @IsOptional()
+  @IsNotEmpty()
+  @IsNumber()
+  @Field(() => Float)
+  price?: number;
+
+  @IsOptional()
+  @IsNotEmpty()
+  @IsNumber()
+  @Field(() => Float)
+  percentDiscount?: number;
 
   @IsOptional()
   @IsArray()
