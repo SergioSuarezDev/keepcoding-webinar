@@ -49,6 +49,16 @@ export class CreateProductInput {
   @IsObject()
   @Field(() => ProductCharacteristicsInput, { nullable: true })
   characteristics: ProductCharacteristicsInput;
+
+  @IsOptional()
+  @IsNumber()
+  @Field(() => Float)
+  price?: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Field(() => Float)
+  percentDiscount?: number;
 }
 
 @InputType()
@@ -84,4 +94,16 @@ export class UpdateProductInput {
   @IsObject()
   @Field(() => ProductCharacteristicsInput, { nullable: true })
   characteristics: ProductCharacteristicsInput;
+
+  @IsOptional()
+  @IsNotEmpty()
+  @IsNumber()
+  @Field(() => Float)
+  price?: number;
+
+  @IsOptional()
+  @IsNotEmpty()
+  @IsNumber()
+  @Field(() => Float)
+  percentDiscount?: number;
 }
