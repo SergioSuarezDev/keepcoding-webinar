@@ -12,4 +12,8 @@ export class ProductCharacteristics {
   @Field(() => String, { nullable: true })
   @Prop()
   two: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop()
+  three: string;
 }
