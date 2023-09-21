@@ -24,4 +24,13 @@ export class ProductCharacteristicsInput {
   @MaxLength(100)
   @Field(() => String, { nullable: true })
   two: string;
+
+  /*@IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  @MinLength(2)
+  @MaxLength(100)
+  @Field(() => String, { nullable: true })
+  three: string;*/
+  // Commented to check PR Agent
 }
