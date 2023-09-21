@@ -26,6 +26,15 @@ export class ProductsResolver {
     return await this.productsService.findOne(_id);
   }
 
+  // Without mongo id to check PR Agent
+  @Query(() => Product)
+  async product2(
+    @Args({ name: '_id', type: () => ObjectIdScalar })
+    _id: MongooseTypes.ObjectId
+  ): Promise<Product> {
+    return await this.productsService.findOne();
+  }
+
   @Query(() => ProductSimple)
   async productSimple(
     @Args({ name: '_id', type: () => ObjectIdScalar })
