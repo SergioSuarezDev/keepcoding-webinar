@@ -10,4 +10,7 @@ export class ProductSimple {
 
   @Field(() => String)
   name: string;
+
+  @Field(() => String)
+  description: string;
 }
