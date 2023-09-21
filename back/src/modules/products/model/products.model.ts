@@ -45,6 +45,14 @@ export class Product {
   @Field(() => ProductCharacteristics, { nullable: true })
   @Prop({ default: {} })
   characteristics: ProductCharacteristics;
+
+  @Field(() => Float)
+  @Prop()
+  price: number;
+
+  @Field(() => Int)
+  @Prop()
+  percentDiscount: number;
 }
 
 export type ProductDocument = Product & Document;
