@@ -38,14 +38,6 @@ export class Product {
   @Prop()
   description: string;
 
-  @Field(() => Float)
-  @Prop()
-  price: number;
-
-  @Field(() => Int)
-  @Prop()
-  percentDiscount: number;
-
   @Field(() => [Category], { nullable: true })
   @Prop({ type: MongooseTypes.ObjectId, ref: 'Category' })
   categories: Category[];
