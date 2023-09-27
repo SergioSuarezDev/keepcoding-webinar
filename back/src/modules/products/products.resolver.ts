@@ -32,7 +32,7 @@ export class ProductsResolver {
     @Args({ name: '_id', type: () => ObjectIdScalar })
     _id: MongooseTypes.ObjectId
   ): Promise<Product> {
-    return await this.productsService.findOne();
+    return await this.productsService.findOne(_id);
   }
 
   @Query(() => ProductSimple)
